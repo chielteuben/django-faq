@@ -6,7 +6,12 @@
 <h1>Topics</h1>
 <ul>
   {% for topic in topics %}
-    <li><a href="{{ topic.get_absolute_url }}">{{ topic }}</a></li>
+    <li><a href="{% url faq_topic_detail topic.slug  %}">{{ topic }}</a></li>
   {% endfor %}
 </ul>
+
+{% if user.is_authenticated %}
+<a href="{% url faq_submit %}">Is your question not on here?</a>
+{% endif %}
+  
 {% endblock %}

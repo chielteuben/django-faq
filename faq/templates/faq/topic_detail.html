@@ -3,7 +3,8 @@
 {% block title %}{{ block.super }}: {{ topic }}{% endblock %}
 
 {% block body %}
-<h3>{{ topic }}</h3>
+<h1>{{ topic }}</h1>
+<p><a href="{% url faq_topic_list %}">Back to the overview</a></p>
 <dl>
 {% for question in questions %}
   <dt>{{ question.text }}</dt>
