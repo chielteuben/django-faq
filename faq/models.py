@@ -49,7 +49,7 @@ class Question(models.Model):
         help_text=_('The order you would like the question to be displayed.'))
 
     created_on = models.DateTimeField(_('created on'), default=datetime.datetime.now)
-    updated_on = models.DateTimeField(_('updated on'))
+    updated_on = models.DateTimeField(_('updated on'), default=datetime.datetime.now)
     created_by = models.ForeignKey(User, verbose_name=_('created by'),
         null=True, related_name="+")
     updated_by = models.ForeignKey(User, verbose_name=_('updated by'),
