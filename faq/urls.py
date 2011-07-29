@@ -1,5 +1,6 @@
 from __future__ import absolute_import
 
+from django.contrib.auth.decorators import login_required
 from django.conf.urls.defaults import *
 from . import views as faq_views
 
@@ -9,7 +10,7 @@ urlpatterns = patterns('',
         name  = 'faq_topic_list',
     ),
     url(regex = r'^submit/$',
-        view  = faq_views.SubmitFAQ.as_view(),
+        view  = login_required(faq_views.SubmitFAQ.as_view()),
         name  = 'faq_submit',
     ),
     url(regex = r'^submit/thanks/$',

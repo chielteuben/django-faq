@@ -14,4 +14,5 @@ from .models import Question, Topic
 class SubmitFAQForm(forms.ModelForm):
     class Meta:
         model = Question
-        fields = ['topic', 'text', 'answer']
+        '''If you want users to suggest an answer too you'll have to add answer here too.'''
+        fields = ['topic', 'text']
