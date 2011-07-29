@@ -8,6 +8,7 @@ class QuestionAdmin(admin.ModelAdmin):
     list_display = ['text', 'sort_order', 'created_by', 'created_on',
                     'updated_by', 'updated_on', 'status']
     list_editable = ['sort_order', 'status']
+    prepopulated_fields = { 'slug': ('text',)}
 
     def save_model(self, request, obj, form, change): 
         '''
