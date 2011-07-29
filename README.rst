@@ -34,7 +34,7 @@ Django 1.3, Python 2.5 or greater.
 Installation
 ============
 
-1. ``pip install -e git+git://github.com/Ziekheid/django-faq.git``
+1. ``pip install -e git+git://github.com/chielteuben/django-faq.git``
 
 2. Add ``"faq"`` to your ``INSTALLED_APPS`` setting.
 
