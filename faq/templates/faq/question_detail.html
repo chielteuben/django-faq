@@ -4,10 +4,11 @@
 
 
 {% block body %}
+<p><a href="{% url faq_topic_detail object.topic.slug %}">Back to {{ object.topic.slug }}</a></p>
 
 {{ object.text }}
 
-<br/>
+<br>
 
 {{ object.answer }}
 

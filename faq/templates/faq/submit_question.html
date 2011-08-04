@@ -4,9 +4,8 @@
 
 {% block body %}
 <h3>Submit Question</h3>
-<p>
-  Use this form to submit a question that you would like to see added to the FAQs on this site.
-</p>
+<p><a href="{% url faq_topic_list %}">Back to the overview</a></p>
+<p>Was your question not in the FAQ? Ask it here.</p>
 <form action="." method="POST">
   {% csrf_token %}
   <table>

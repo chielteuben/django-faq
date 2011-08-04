@@ -3,11 +3,12 @@
 {% block title %}{{ block.super }}: {{ topic }}{% endblock %}
 
 {% block body %}
+
 <h1>{{ topic }}</h1>
 <p><a href="{% url faq_topic_list %}">Back to the overview</a></p>
 <dl>
 {% for question in questions %}
-  <dt>{{ question.text }}</dt>
+  <dt><a href="{% url faq_question_detail topic.slug question.slug %}">{{ question.text }}</a></dt>
   <dd class="answer">{{ question.answer }}</dd>
 {% endfor %}
 </dl>

@@ -25,7 +25,7 @@ class TopicList(ListView):
         #
         #   max(max(q.updated_on for q in topic.questions) for topic in topics)
         #
-        # Except performed in the DB, so quite a bit more efficiant.
+        # Except performed in the DB, so quite a bit more efficient.
         #
         # We can't just do Question.objects.all().aggregate(max('updated_on'))
         # because that'd prevent a subclass from changing the view's queryset
