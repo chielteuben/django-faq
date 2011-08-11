@@ -1,7 +1,7 @@
 from django.contrib.sitemaps import Sitemap
 from faq.models import Topic, Question 
 
-from datetime import datetime, timedelta
+from datetime import datetime
 
 class FaqTopicSiteMap(Sitemap):
     changefreq = "weekly"
