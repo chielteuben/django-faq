@@ -1,4 +1,5 @@
 from django.contrib.sitemaps import Sitemap
+from django.core.urlresolvers import reverse
 from faq.models import Topic, Question 
 
 from datetime import datetime
@@ -15,7 +16,7 @@ class FaqTopicSiteMap(Sitemap):
         return datetime.now() 
 
     def location(self, obj):
-        return '/faq/'+obj.slug+'/'
+        return reverse('faq_topic_detail', args=[obj.slug])
 
 class FaqQuestionSiteMap(Sitemap):
     changefreq = "weekly"
@@ -29,4 +30,4 @@ class FaqQuestionSiteMap(Sitemap):
         return obj.updated_on
 
     def location(self, obj):
-        return '/faq/'+obj.topic.slug+'/'+obj.slug+'/'
+        return reverse('faq_question_detail', args=[obj.topic.slug, obj.slug])
