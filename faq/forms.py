@@ -9,10 +9,13 @@ actually it is, only it is added as inactive.
 from __future__ import absolute_import
 import datetime
 from django import forms
+from django.conf import settings
 from .models import Question, Topic
 
 class SubmitFAQForm(forms.ModelForm):
     class Meta:
         model = Question
-        '''If you want users to suggest an answer too you'll have to add answer here too.'''
-        fields = ['topic', 'text']
+        if settings.FAQ_ALLOW_ANSWER:
+            fields = ['topic', 'text', 'answer']
+        else:
+            fields = ['topic', 'text']
