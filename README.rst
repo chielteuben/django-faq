@@ -25,6 +25,12 @@ submit new questions and/or answers to the site administrator for consideration.
 All submitted questions are added as "inactive" and so it is up to the
 administrator to edit, activate or discard the question as well as set its'
 sort_order field and slug to reasonable values.
+It is possible to enable users to suggest an answer to the question they are
+posting by setting the ``FAQ_ALLOW_ANSWER`` to True in your settings.
+It is also possible to prevent unregistred users from posting questions 
+by setting ``FAQ_REQUIRE_AUTH`` to True.
+Note: if you don't set these variables at all the default settings will allow
+unregistred users to post questions with no posibility to suggest an answer.
 
 Requirements
 ============
@@ -44,7 +50,9 @@ Installation
 
 4. Run ``python manage.py syncdb`` (Make sure you've set up the ``DATABASES`` in your django settings)
 
-If you want to customize the templates then either create an 'faq' directory in
+5. (Optional) Set ``FAQ_REQUIRE_AUTH`` or ``FAQ_ALLOW_ANSWER`` (see features) in your settings file.
+
+If you want to customize the templates then either create a 'faq' directory in
 your projects templates location, or you can also pass along custom
 'template_name' arguments by creating your own view wrappers around the 'faq'
 app views. I show how to do the latter in the 'example' project included - look
