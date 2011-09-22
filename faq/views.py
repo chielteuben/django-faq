@@ -7,6 +7,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.utils.translation import ugettext as _
 from django.views.generic.list_detail import object_detail, object_list
 from django.views.generic import ListView, DetailView, TemplateView, CreateView
+from django.conf import settings
 from .models import Question, Topic
 from .forms import SubmitFAQForm
 
@@ -37,7 +38,7 @@ class TopicList(ListView):
                             .annotate(updated=Max('questions__updated_on'))
                             .aggregate(Max('updated')))
         
-        data.update({'last_updated': last_updated['updated__max']})
+        data.update({'last_updated': last_updated['updated__max'], 'settings': settings})
         return data
 
 class TopicDetail(DetailView):

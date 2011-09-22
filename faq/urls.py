@@ -16,20 +16,21 @@ urlpatterns = patterns('',
     ),
 )
 
-if settings.FAQ_REQUIRE_AUTH:
-    urlpatterns += patterns('',
-        url(regex = r'^submit/$',
-            view  = login_required(faq_views.SubmitFAQ.as_view()),
-            name  = 'faq_submit',
-        ),
-    )
-else:
-    urlpatterns += patterns('',
-        url(regex = r'^submit/$',
-            view  = faq_views.SubmitFAQ.as_view(),
-            name  = 'faq_submit',
-        ),
-    )
+if settings.FAQ_ALLOW_QUESTION:
+    if settings.FAQ_REQUIRE_AUTH:
+        urlpatterns += patterns('',
+            url(regex = r'^submit/$',
+                view  = login_required(faq_views.SubmitFAQ.as_view()),
+                name  = 'faq_submit',
+            ),
+        )
+    else:
+        urlpatterns += patterns('',
+            url(regex = r'^submit/$',
+                view  = faq_views.SubmitFAQ.as_view(),
+                name  = 'faq_submit',
+            ),
+        )
     
 urlpatterns += patterns('',
     url(regex = r'^(?P<slug>[\w-]+)/$',

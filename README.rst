@@ -25,7 +25,9 @@ submit new questions and/or answers to the site administrator for consideration.
 All submitted questions are added as "inactive" and so it is up to the
 administrator to edit, activate or discard the question as well as set its'
 sort_order field and slug to reasonable values.
-It is possible to enable users to suggest an answer to the question they are
+You can enable users to post questions by setting ``FAQ_ALLOW_QUESTION`` to True
+in your settings.
+Accordingly you can enable users to suggest an answer to the question they are
 posting by setting the ``FAQ_ALLOW_ANSWER`` to True in your settings.
 It is also possible to prevent unregistred users from posting questions 
 by setting ``FAQ_REQUIRE_AUTH`` to True.
