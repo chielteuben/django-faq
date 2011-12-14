@@ -12,7 +12,7 @@ from .models import Question, Topic
 from .forms import SubmitFAQForm
 
 class TopicList(ListView):
-    queryset = Topic.objects.filter(questions=True)
+    queryset = Topic.objects.filter(questions__isnull=False)
     template = "faq/topic_list.html"
     allow_empty = True
     context_object_name = "topics"
